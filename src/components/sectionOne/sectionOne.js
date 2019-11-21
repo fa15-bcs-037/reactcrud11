@@ -1,13 +1,8 @@
-import React,{useEffect, useState} from 'react';
+import React from 'react';
 export default (props) => {
-    const [localState, setLocalState] = useState()
-    // useEffect(()=>{
-    //     console.log("trigger");
-    //     setLocalState(props.global+"Ok");
-    // },[props.global]);
+    console.log(props.location.data);
     return (
-        <>
-            <h1>{props.id.id}</h1>
-        </>
+
+        {/*<{props.location.data}/>*/}
     );
 }

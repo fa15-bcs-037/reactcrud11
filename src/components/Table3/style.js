@@ -5,8 +5,8 @@ export default () => (
 background: #00aeef ;
     color: white;
     padding: 7px;
-    width: 75%;
-    margin-left: 21%;
+    width: 50%;
+    margin-left: 37%;
 }
 .add-btn{
 margin-left: 24%;
@@ -52,7 +52,8 @@ margin-left: 24%;
         cursor: pointer;
           }
     }
-
+pagination-status {
+}
 
 
 

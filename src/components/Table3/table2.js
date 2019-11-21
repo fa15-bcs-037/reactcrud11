@@ -1,13 +1,15 @@
-import React,{Component,useState,useEffect}  from 'react';
+import React,{useState,useEffect,useContext}  from 'react';
 import Style from './style'
-// import data from '../../Data/data.json';
 import arraySort from 'array-sort';
- import axios from 'axios';
 import {Link} from 'react-router-dom';
-
+import {Context} from '../../store/store';
 
 export default()=>
 {
+
+    const [dataa, setdata]= useContext(Context);
+    const [nameSortType, setNameSortType] = useState("");
+
     const Row = ({name, company, email, phone, address,id}) => (
         <div className="row">
             <div>{name}</div>
@@ -16,25 +18,13 @@ export default()=>
             <div>{phone}</div>
             <div>{address}</div>
             <div>{<button className="del-btn" onClick={() => {del(id)}}>Del item</button>}
-                {<Link to={"/update"}><button className="del-btn" onClick={() => {}}>Update item</button></Link>}</div>
+                <Link
+                    to={{pathname: '/update', state: [{id: id,name:name,company:company,email:email,phone:phone,address:address}]}}>
+                    <button className="del-btn" onClick={() => {}}>Update item</button>
+                </Link>
+            </div>
         </div>
     );
-
-    const [dataa, setdata]= useState([]);
-    // const [data1, setRow]= useState([]);
-    const [nameSortType, setNameSortType] = useState("");
-
-    useEffect(()=>{
-        axios.get
-        ('https://personal-app-team.herokuapp.com/api/team')
-            .then(res=>{
-                console.log("response", res.data);
-                // console.log("response", res.data);
-                setdata(res.data);
-                // setRow(res.data.data);
-            });
-    },[]);
-
 
 
     const Ascendingsort  = (x) => {
@@ -68,8 +58,6 @@ export default()=>
      // setRow(delete(dataa[id].address));
  };
 
-
-
     const rows = dataa.map( (rowData) => <Row {...rowData} />);
     return (
         <>
@@ -96,21 +84,17 @@ export default()=>
                     <div className="fas fa-caret-up">ADDR</div>:
                     <div className="fas fa-caret-down">ADDR</div>}
                 </div>
+                <div>
 
-                     <div>
+                    <div>
+                        <Link to={"/add"}><button className="add-btn" onClick={() => {}}>Add item</button></Link>
+                    </div>
 
-                         <div>
-                             <Link to={"/add"}><button className="add-btn" onClick={() => {}}>Add item</button></Link>
-                         </div>
+                </div>
 
-                         </div>
-
-
-            </div>
-            <div className="body">
-                {rows}
 
             </div>
+            <div className="body">{rows}</div>
         </div>
         <Style/>
         </>
