@@ -8,7 +8,6 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 function App() {
   return (
-
       <BrowserRouter>
         <Switch>
           <Route path={"/"} exact={true} component={Home}/>
@@ -18,10 +17,6 @@ function App() {
             <Route path={"/privacy-policy"}  component={Privacypolicy}/>
         </Switch>
       </BrowserRouter>
-
-    // {/*<Hajira/>*/}
-
-
   )
 }
 
