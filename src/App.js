@@ -7,23 +7,22 @@ import Privacypolicy from './components/privacypolicy/privacypolicy'
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 function App() {
-    return (
+  return (
 
-        <BrowserRouter>
-            <Switch>
-                <Route path={"/"} exact={true} component={Home}/>
-                <Route path={"/privacypolicy"} component={Privacypolicy}/>
-                <Route path={"/update"} component={Update}/>
-                <Route path={"/add"} component={Add}/>
-                <Route path={"/sec1"} component={Sec1}/>
+      <BrowserRouter>
+        <Switch>
+          <Route path={"/"} exact={true} component={Home}/>
+          <Route path={"/update"} component={Update}/>
+            <Route path={"/add"} component={Add}/>
+            <Route path={"/sec1"}  component={Sec1}/>
+            <Route path={"/privacy-policy"}  component={Privacypolicy}/>
+        </Switch>
+      </BrowserRouter>
 
-            </Switch>
-        </BrowserRouter>
-
-        // {/*<Hajira/>*/}
+    // {/*<Hajira/>*/}
 
 
-    )
+  )
 }
 
 export default App;
